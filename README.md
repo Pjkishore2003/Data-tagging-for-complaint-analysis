@@ -1,5 +1,3 @@
-# Data-tagging-for-complaint-analysis
-This repository contains a tagged dataset for complaint classification, where free-text data (Complaint, Cause, Correction) is logically mapped to predefined categories from a taxonomy. The project involves data tagging based on Root Cause, Symptom_Condition, Symptom_Component, Fix_Condition, and Fix_Component.
 # Data Tagging for Complaint Classification
 
 ## Project Overview
@@ -26,35 +24,45 @@ The tagging process assigns appropriate labels to each entry based on:
    - Analyzed sample tagged examples for reference.
 
 2. **Tagging Methodology**
-   - Applied logical reasoning to match free-text complaints to taxonomy categories.
-   - Used keyword mapping, context understanding, and pattern recognition.
-   - Handled ambiguous cases through best-fit categorization.
+   - Applied TF-IDF vectorization and fuzzy matching for text classification.
+   - Used a function to clean and preprocess text before matching.
+   - Implemented a similarity-based approach to assign categories from the taxonomy.
+   - Handled ambiguous cases through a combination of cosine similarity and fuzzy matching.
 
-3. **Validation and Refinement**
-   - Ensured tagging consistency across the dataset.
-   - Cross-checked ambiguous entries and documented observations.
+3. **Validation and Accuracy Calculation**
+   - Compared tagged data with the original dataset.
+   - Measured tagging accuracy across multiple fields.
+   - Documented observations and improvements.
 
 ## Insights & Observations
 - Identified common patterns in complaints and fixes.
 - Recognized frequent root causes that could help improve product/service quality.
 - Potential use case for automation via NLP-based classification models.
+- TF-IDF and fuzzy matching improve tagging accuracy but may require additional training data.
 
 ## Files in This Repository
 - `datatagged_Dataset.xlsx`: The final tagged dataset.
 - `DA - Task 1.xlsx`: Contains the original dataset, taxonomy reference, and the summary report.
 - `README.md`: This documentation file.
+- `tagging_script.py`: The Python script used for data tagging.
 
 ## How to Use
-- Open the tagged dataset to explore the assigned categories.
-- Use the summary report for insights into the tagging process and observations.
+1. Ensure you have installed dependencies:
+   ```sh
+   pip install fuzzywuzzy python-Levenshtein pandas numpy scikit-learn openpyxl
+   ```
+2. Run the script to generate a tagged dataset:
+   ```sh
+   python tagging_script.py
+   ```
+3. Open the output file `datatagged_Dataset.xlsx` to explore the assigned categories.
 
 ## Future Enhancements
-- Implement automated tagging using AI/ML techniques.
-- Improve taxonomy coverage for better classification.
+- Improve accuracy with fine-tuned NLP models.
+- Implement a graphical interface for manual review and adjustments.
+- Extend the taxonomy for better classification coverage.
 
 ## Contributing
 Feel free to submit issues or pull requests to enhance the dataset and tagging methodology.
 
-## License
-This project is licensed under the MIT License.
 
